@@ -2,13 +2,13 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="usermame">Username</label>
-    <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{'is-invalid': fields.username.errors }" />
-    <div *ngIf="fields.username.errors?.required">Username requis</div>
+    <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{'is-invalid': fields.username.errors && loginForm.dirty }" />
+    <div *ngIf="fields.username.errors?.required && loginForm.dirty">Username requis</div>
   </div>
   <div class="form-group">
-    <label for="password">Username</label>
-    <input type="text" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': fields.password.errors }" />
-    <div *ngIf="fields.password.errors?.required">Password requis</div>
+    <label for="password">Password</label>
+    <input type="text" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': fields.password.errors && loginForm.dirty }" />
+    <div *ngIf="fields.password.errors?.required && loginForm.dirty">Password requis</div>
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-primary" [disabled]="loading">

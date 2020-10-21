@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loading = true;
     this.alertService.clear();
-    this.authenticationService.login(this.fields.username.value, this.fields.username.value)
+    this.authenticationService.login(this.fields.username.value, this.fields.password.value)
       .pipe(first())
       .subscribe((data) => {
         this.router.navigate([this.returnUrl]);
